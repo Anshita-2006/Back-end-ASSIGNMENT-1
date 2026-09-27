@@ -1,13 +1,18 @@
 {
-  "name": "assignment-1",
+  "name": "student-management-rest-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Lab Assignment 2 - Student Management REST API using Node.js & Express",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node test-api.js"
   },
-  "keywords": [],
+  "keywords": ["express", "rest-api", "crud", "student-management"],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }

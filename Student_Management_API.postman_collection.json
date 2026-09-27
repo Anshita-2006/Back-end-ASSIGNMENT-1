@@ -1,0 +1,179 @@
+{
+  "info": {
+    "_postman_id": "8a3e7b1a-9821-4f10-b98a-student-mgmt-api",
+    "name": "Student Management REST API",
+    "description": "Postman Collection for Lab Assignment 2 - Student Management REST API (Node.js & Express)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "View All Students (GET /students)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": ["{{baseUrl}}"],
+          "path": ["students"]
+        },
+        "description": "Fetches all student records. Expected Status: 200 OK."
+      },
+      "response": []
+    },
+    {
+      "name": "View Student by ID - Success (GET /students/:id)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "1"]
+        },
+        "description": "Fetches a single student by ID (Rahul, BCA). Expected Status: 200 OK."
+      },
+      "response": []
+    },
+    {
+      "name": "View Student by ID - Not Found (GET /students/:id)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students/999",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "999"]
+        },
+        "description": "Attempts to fetch a non-existent student ID. Expected Status: 404 Not Found."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Student - Success (POST /students)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Neha\",\n  \"course\": \"MCA\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": ["{{baseUrl}}"],
+          "path": ["students"]
+        },
+        "description": "Creates a new student record. Expected Status: 201 Created."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Student - Invalid Input (POST /students)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students",
+          "host": ["{{baseUrl}}"],
+          "path": ["students"]
+        },
+        "description": "Missing course field / empty name. Expected Status: 400 Bad Request."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student - Success (PUT /students/:id)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Priya Sharma\",\n  \"course\": \"MTech\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students/2",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "2"]
+        },
+        "description": "Updates student ID 2. Expected Status: 200 OK."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student - Not Found (PUT /students/:id)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Ghost Student\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students/999",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "999"]
+        },
+        "description": "Attempts to update a non-existent student ID. Expected Status: 404 Not Found."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student - Success (DELETE /students/:id)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students/3",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "3"]
+        },
+        "description": "Deletes student ID 3 (Amit). Expected Status: 200 OK."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student - Not Found (DELETE /students/:id)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/students/999",
+          "host": ["{{baseUrl}}"],
+          "path": ["students", "999"]
+        },
+        "description": "Attempts to delete a non-existent student ID. Expected Status: 404 Not Found."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
